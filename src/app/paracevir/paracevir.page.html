@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>paracevir</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>
+       Para translate-Exchange API 
+      </ion-label>
+    </ion-list-header>
+    <ion-item >
+      <ion-label position="fixed"  >Miktar giriniz:</ion-label>
+      <ion-input type="number" aria-placeholder="miktar giriniz" type="number" name="miktar" [(ngModel)]="miktar"  id = "amount"></ion-input>
+    </ion-item>
+    <!-- <ion-button >Hesapla</ion-button> -->
+    <ion-item >
+      <ion-label>Para seç </ion-label>
+      <ion-select  [compareWith]="compareWith"  cancelText="Kapat" okText="Tamam!" 
+       id = "firstCurrency" [selectedText]="selectcategory" [(ngModel)]="selectcategory" (ionChange)=" getPara()">
+        <ion-select-option *ngFor="let item of money"  >{{item.moneyName}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+
+  <ion-list>
+   
+  
+    <ion-item>
+      <ion-label>çevirelecek olan para </ion-label>
+      <ion-select [compareWith]="compareWith"  cancelText="Kapat" okText="Tamam!"
+      [selectedText]="selectSecond" [(ngModel)]="selectSecond" (ionChange)="getSecondMoney()" id = "secondCurrency">
+        <ion-select-option *ngFor="let item of money">{{item.moneyName}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-item>
+    <ion-label position="fixed">{{selectcategory}}-{{selectSecond}}</ion-label>
+    <ion-input type="number" >sonuc : {{total}}</ion-input>
+  </ion-item>
+  
+
+  <ion-button (click)=" getTotal()">Hesapla</ion-button>
+ 
+</ion-content>

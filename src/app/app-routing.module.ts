@@ -11,6 +11,14 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'haberdetay',
+    loadChildren: () => import('./haberdetay/haberdetay.module').then( m => m.HaberdetayPageModule)
+  },
+  {
+    path: 'paracevir',
+    loadChildren: () => import('./paracevir/paracevir.module').then( m => m.ParacevirPageModule)
+  },
 ];
 
 @NgModule({
